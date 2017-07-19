@@ -7,8 +7,14 @@ const webpack = require('webpack')
 const webpackConfig = require('./webpack.dev')
 const config = require('./config')
 const LogPlugin = require('./log-plugin')
+const proxyMiddleware = require('http-proxy-middleware')
 
 const app = express()
+
+app.use(proxyMiddleware('/admin', {
+  target: process.env.KLG_APP_ADMIN_URL || 'http://localhost:8827',
+  changeOrigin: true
+}))
 
 const port = config.port
 webpackConfig.entry.client = [

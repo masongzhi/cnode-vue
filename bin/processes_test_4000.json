@@ -1,0 +1,22 @@
+{
+  "apps": [
+    {
+      "name": "klg-invest-client-test-4000",
+      "args": "['--env=testing']",
+      "exec_interpreter": "node7",
+      "script": "build/server.js",
+      "ignore_watch": [
+        "[\\/\\\\]\\./",
+        "node_modules"
+      ],
+      "watch": false,
+      "merge_logs": true,
+      "cwd": "./",
+      "env": {
+        "KLG_INVEST_SERVER": "http://localhost:8827",
+        "NODE_ENV": "testing",
+        "PORT": "4000"
+      }
+    }
+  ]
+}

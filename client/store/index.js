@@ -1,31 +1,19 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import actions from './actions'
+import mutations from './mutations'
+import login from './modules/login'
 
 Vue.use(Vuex)
 
-const state = {
-  count: 0
-}
-
-const mutations = {
-  INCREMENT (state) {
-    state.count++
-  },
-  DECREMENT (state) {
-    state.count--
-  }
-}
-
-const actions = {
-  incrementAsync ({ commit }) {
-    setTimeout(() => {
-      commit('INCREMENT')
-    }, 200)
-  }
+function createListState () {
+  return { data: null, total: 0, isLoading: false, error: null }
 }
 
 const store = new Vuex.Store({
-  state,
+  modules: {
+    login
+  },
   mutations,
   actions
 })
