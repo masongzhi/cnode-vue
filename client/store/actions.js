@@ -1,5 +1,5 @@
 import {
-  fetchDirectlyinvestLimitList
+  getTopics
 } from '../api'
 
 function createAction (process, type) {
@@ -12,6 +12,6 @@ function createAction (process, type) {
 }
 
 export default {
-  // IVEST ORDER
-  FETCH_DIRECTLYINVEST_LIMIT_LIST: createAction(fetchDirectlyinvestLimitList, 'FETCH_DIRECTLYINVEST_LIMIT_LIST')
+  // GET
+  getTopics: createAction(getTopics, 'GET_TOPICS')
 }

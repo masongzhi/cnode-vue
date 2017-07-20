@@ -32,5 +32,5 @@ function createListMutation (type, ...props) {
 
 export default {
   // INVEST
-  ...createListMutation('FETCH_DIRECTLYINVEST_LIMIT_LIST', 'invest', 'directlyInvest', 'limit'),
+  ...createListMutation('GET_TOPICS', 'home'),
 }

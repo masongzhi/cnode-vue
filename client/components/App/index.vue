@@ -3,28 +3,6 @@
     <router-view></router-view>
   </div>
 </template>
-<script>
-  export default {
-    data() {
-      return {
-        menuItems: [
-          { route: '/invest/directlyInvest', label: '直投管理' },
-          { route: '/invest/dfg', label: '账户概况' },
-          { route: '/invest/directfgdlyInvest', label: '回款管理' },
-          { route: '/invest/direcdfgdtlyInvest', label: '标的管理' },
-          { route: '/invest/directdfgdlyInvest', label: '投资汇总' }
-        ]
-      }
-    },
-    computed: {
-      defaultActive() {
-        const parentRoutePrefix = this.$route.path.split('/')[1]
-        const activeItem = this.menuItems.filter(item => item.route.split('/')[1] === parentRoutePrefix)[0]
-        return activeItem ? activeItem.route : this.$route.path
-      }
-    }
-  }
-</script>
 <style>
 @import "style.less";
 body {

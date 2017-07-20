@@ -2,17 +2,17 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import actions from './actions'
 import mutations from './mutations'
-import login from './modules/login'
+import home from './modules/home'
 
 Vue.use(Vuex)
 
 function createListState () {
-  return { data: null, total: 0, isLoading: false, error: null }
+  return { data: null, isLoading: false, error: null }
 }
 
 const store = new Vuex.Store({
   modules: {
-    login
+    home
   },
   mutations,
   actions

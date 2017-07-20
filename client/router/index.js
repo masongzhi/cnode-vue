@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '../views/Home'
+import Frame from '../views/Frame'
+import Home from '../views/Home/index.vue'
 import Login from '../views/login'
 
 Vue.use(Router)
@@ -11,7 +12,14 @@ export default new Router({
   routes: [
     {
       path: '/',
-      component: Login
+      redirect: '/home',
+      component: Frame,
+      children: [
+        {
+          path: 'home',
+          component: Home
+        }
+      ]
     }
   ]
 })

@@ -1,6 +1,7 @@
 import isomorphicFetch from 'isomorphic-fetch'
 import URI from 'urijs'
 import isEmpty from 'lodash/isEmpty'
+const REQUEST_URL = 'https://cnodejs.org/api/v1'
 
 export default function klgFetch(url, options = undefined) {
   if (options && options.query) {
@@ -15,7 +16,7 @@ export default function klgFetch(url, options = undefined) {
 export function ensureAbsoluteUrl(input) {
   if (typeof input !== 'string') return input
   if (URI(input).is('absolute')) return input
-  return URI('/admin' + input).normalize().toString()
+  return URI(REQUEST_URL + input).normalize().toString()
 }
 
 export function optionsHandler(options) {
