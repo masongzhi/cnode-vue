@@ -1,8 +1,12 @@
 <template>
 
   <el-menu theme="dark" :default-active="defaultActive" mode="horizontal">
-    <el-col :offset="2">
-      <el-menu-item index="/home">首页</el-menu-item>
+    <el-col style="padding-left: 2%">
+      <el-menu-item index="/home">
+        <!--<el-row type="flex">-->
+          <img width="120" height="28" src="//o4j806krb.qnssl.com/public/images/cnodejs_light.svg">
+        <!--</el-row>-->
+      </el-menu-item>
       <el-submenu index="2">
         <template slot="title">我的工作台</template>
         <el-menu-item index="2-1">选项1</el-menu-item>
