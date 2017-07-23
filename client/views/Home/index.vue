@@ -1,11 +1,12 @@
 <template>
-  <StatusContainer :isLoading="isLoading">
-    <el-row
-        type="flex"
-        justify="center"
-        class="bgGrey"
-    >
-      <el-col :span="18" class="bgWhite marginTop20 marginBottom20">
+  <el-row
+      type="flex"
+      justify="center"
+      class="bgGrey"
+  >
+    <el-col :span="18" class="bgWhite marginTop20 marginBottom20">
+      <NavMenu filterKey="tab"/>
+      <StatusContainer :isLoading="isLoading">
         <el-row
             type="flex"
             justify="space-between"
@@ -23,10 +24,10 @@
             <span class="lastReplyTime">{{getFormatTime(item.last_reply_at)}}</span>
           </div>
         </el-row>
-        <el-col :span="23"><Pagination :page-size="20" /></el-col>
-      </el-col>
-    </el-row>
-  </StatusContainer>
+      </StatusContainer>
+      <el-col :span="23"><Pagination :page-size="20" /></el-col>
+    </el-col>
+  </el-row>
 </template>
 <script>
   import StatusContainer from '../../components/StatusContainer'
@@ -34,11 +35,13 @@
   import convertApiQuery from '../../utils/convertApiQuery'
   import { getFormatTime } from '../../utils/dateUtils'
   import Pagination from '../../components/Pagination'
+  import NavMenu from './NavMenu.vue'
 
   export default {
     components: {
       StatusContainer,
-      Pagination
+      Pagination,
+      NavMenu
     },
     methods: {
       ...mapActions([
@@ -47,9 +50,9 @@
       getFormatTime,
       getData () {
         this.getTopics({
-          query: convertApiQuery({
-            ...this.$route.query
-          })
+          query: {
+            ...convertApiQuery(this.$route.query)
+          }
         })
       }
     },
@@ -65,9 +68,10 @@
     },
     computed: {
       ...mapState('home', {
-        data: state => {console.log(state.data && state.data.data); return state.data && state.data.data},
+        data: state => {console.log(state); return state.data && state.data.data},
         error: state => state.error,
         isLoading: state => state.isLoading,
+        options: state => state.options,
       })
     }
   }
