@@ -18,6 +18,7 @@
           <el-row type="flex" align="middle" class="topicLeft">
             <img height="30px" :src="item.author && item.author.avatar_url" alt="作者头像" class="authorPic">
             <span style="min-width: 80px; text-align: center; font-size: 13px">{{item.reply_count + '/' + item.visit_count}}</span>
+            <el-tag class="tab" :type="item.top && keyValue.tab['top'].type || item.good && keyValue.tab['good'].type || keyValue.tab[item.tab] && keyValue.tab[item.tab].type">{{item.top && keyValue.tab['top'].text || item.good && keyValue.tab['good'].text || keyValue.tab[item.tab] && keyValue.tab[item.tab].text}}</el-tag>
             <span class="title">{{item.title}}</span>
           </el-row>
           <div class="topicRight">
@@ -72,6 +73,7 @@
         error: state => state.error,
         isLoading: state => state.isLoading,
         options: state => state.options,
+        keyValue: state => state.keyValue,
       })
     }
   }
@@ -94,5 +96,8 @@
   }
   span {
     @extend .fontSize--small
+  }
+  .tab {
+    margin-right: 10px;
   }
 </style>
