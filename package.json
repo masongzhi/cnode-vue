@@ -24,6 +24,7 @@
     "isomorphic-fetch": "^2.2.1",
     "md5": "^2.2.1",
     "moment": "^2.18.1",
+    "pell": "^0.7.0",
     "promise-polyfill": "^6.0.2",
     "urijs": "^1.18.10",
     "vue": "^2.2.0",
