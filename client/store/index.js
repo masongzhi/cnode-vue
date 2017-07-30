@@ -2,7 +2,8 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import actions from './actions'
 import mutations from './mutations'
-import home from './modules/home'
+import topics from './modules/topics'
+import topic from './modules/topic'
 
 Vue.use(Vuex)
 
@@ -12,7 +13,8 @@ function createListState () {
 
 const store = new Vuex.Store({
   modules: {
-    home
+    topics,
+    topic
   },
   mutations,
   actions

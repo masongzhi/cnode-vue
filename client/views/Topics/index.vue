@@ -4,7 +4,7 @@
       justify="center"
       class="bgGrey"
   >
-    <el-col :span="18" class="bgWhite marginTop20 marginBottom20">
+    <el-col :span="12" class="bgWhite marginTop20 marginBottom20">
       <NavMenu filterKey="tab"/>
       <StatusContainer :isLoading="isLoading">
         <el-row
@@ -19,7 +19,8 @@
             <img height="30px" :src="item.author && item.author.avatar_url" alt="作者头像" class="authorPic">
             <span style="min-width: 80px; text-align: center; font-size: 13px">{{item.reply_count + '/' + item.visit_count}}</span>
             <el-tag class="tab" :type="item.top && keyValue.tab['top'].type || item.good && keyValue.tab['good'].type || keyValue.tab[item.tab] && keyValue.tab[item.tab].type">{{item.top && keyValue.tab['top'].text || item.good && keyValue.tab['good'].text || keyValue.tab[item.tab] && keyValue.tab[item.tab].text}}</el-tag>
-            <span class="title">{{item.title}}</span>
+            <router-link :to="{ path: '/topic/' + item.id}">{{item.title}}</router-link>
+            <!--<span class="title">{{item.title}}</span>-->
           </el-row>
           <div class="topicRight">
             <span class="lastReplyTime">{{getFormatTime(item.last_reply_at)}}</span>
@@ -68,7 +69,7 @@
       this.getData()
     },
     computed: {
-      ...mapState('home', {
+      ...mapState('topics', {
         data: state => {console.log(state); return state.data && state.data.data},
         error: state => state.error,
         isLoading: state => state.isLoading,
@@ -82,22 +83,7 @@
   .authorPic {
     border-radius: 3px;
   }
-  .bgGrey {
-    background-color: #e1e1e1;
-  }
-  .bgWhite {
-    background-color: white;
-  }
-  .marginBottom20 {
-    margin-bottom: 20px;
-  }
-  .marginTop20 {
-    margin-top: 20px;
-  }
   span {
     @extend .fontSize--small
-  }
-  .tab {
-    margin-right: 10px;
   }
 </style>

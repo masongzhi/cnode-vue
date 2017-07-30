@@ -1,6 +1,10 @@
 import fetch from '../utils/fetch'
 
-// cnode API
+// get /topics 主题首页
 export function getTopics (options) {
   return fetch('/topics', options)
+}
+// get /topic/:id 主题详情
+export function getTopic (topicId, options) {
+  return fetch(`/topic/${topicId}`, options)
 }

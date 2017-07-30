@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Frame from '../views/Frame'
-import Home from '../views/Home/index.vue'
+import Topics from '../views/Topics/index.vue'
+import Topic from '../views/Topic/index.vue'
 import Login from '../views/login'
 import Pell from '../views/Pell/index.vue'
 
@@ -13,12 +14,16 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/home',
+      redirect: '/topics',
       component: Frame,
       children: [
         {
-          path: 'home',
-          component: Home
+          path: 'topics',
+          component: Topics
+        },
+        {
+          path: 'topic/:topicId',
+          component: Topic
         },
         {
           path: 'pell',

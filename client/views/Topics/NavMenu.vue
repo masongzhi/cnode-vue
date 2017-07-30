@@ -17,12 +17,12 @@
         this.updateValueFromQuery(to.query)
       }
     },
-    computed: mapState('home', {
+    computed: mapState('topics', {
       options: state => state.options,
       menuDefaultActive: state => state.menuDefaultActive
     }),
     methods: {
-      ...mapActions('home', [
+      ...mapActions('topics', [
         'changeMenuDefaultActive'
       ]),
       handleSelect(key, keyPath) {

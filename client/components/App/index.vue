@@ -5,9 +5,10 @@
 </template>
 <style>
 @import "style.less";
+@import "mark-down.less";
 body {
   margin: 0;
-  font-size: 2rem;
+  /*font-size: 2rem;*/
   font-family: -apple-system, BlinkMacSystemFont,
                'avenir next', avenir,
                helvetica, 'helvetica neue',
