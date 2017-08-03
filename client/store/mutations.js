@@ -10,18 +10,18 @@ function createListMutation (type, ...props) {
   }
 
   return {
-    [type + '_START']: function (state) {
+    [type + '_START'] (state) {
       const mutationState = getMutationState(state, props)
       mutationState.isLoading = true
     },
-    [type + '_SUCCESS']: function (state, { response }) {
+    [type + '_SUCCESS'] (state, { response }) {
       const mutationState = getMutationState(state, props)
       mutationState.data = response.docs || response.list || response
       mutationState.total = response.total
       mutationState.isLoading = false
       mutationState.error = null
     },
-    [type + '_ERROR']: function (state, { error }) {
+    [type + '_ERROR'] (state, { error }) {
       const mutationState = getMutationState(state, props)
       mutationState.error = error
       mutationState.data = null
@@ -33,5 +33,5 @@ function createListMutation (type, ...props) {
 export default {
   // INVEST
   ...createListMutation('GET_TOPICS', 'topics'),
-  ...createListMutation('GET_TOPIC_BY_ID', 'topic'),
+  ...createListMutation('GET_TOPIC_BY_ID', 'topic')
 }

@@ -1,7 +1,7 @@
 export default {
   functional: true,
   props: ['isLoading', 'error'],
-  render(h, context) {
+  render (h, context) {
     const {
       isLoading,
       error
@@ -10,7 +10,7 @@ export default {
     if (isLoading) {
       // 嵌套 div 解决 v-loading 不更新 Bug -_-
       return (
-        <div style={{marginTop: '4rem'}}>
+        <div style={{ marginTop: '4rem' }}>
           <div v-loading={isLoading}></div>
         </div>
       )
@@ -19,14 +19,14 @@ export default {
     // Todo Error Component
     if (error) {
       return (
-        <div style={{marginTop: '4rem'}}>
+        <div style={{ marginTop: '4rem' }}>
           <div v-loading={isLoading}></div>
         </div>
       )
     }
 
     return (
-      <div class="klg-status-container">
+      <div class='klg-status-container'>
         {context.children}
       </div>
     )

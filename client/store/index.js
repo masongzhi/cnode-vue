@@ -7,10 +7,6 @@ import topic from './modules/topic'
 
 Vue.use(Vuex)
 
-function createListState () {
-  return { data: null, isLoading: false, error: null }
-}
-
 const store = new Vuex.Store({
   modules: {
     topics,

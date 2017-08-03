@@ -8,6 +8,6 @@ export default function (query) {
   return {
     limit: c,
     page: l,
-    ...!!tab && { tab },
+    ...!!tab && { tab }
   }
 }

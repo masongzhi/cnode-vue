@@ -47,14 +47,14 @@ export default {
         this.value = defaultDateValue
       }
     },
-    handleDateChange(value) {
+    handleDateChange (value) {
       this.$router.push({
         path: this.$route.path,
         query: {
           ...omit(this.$route.query, 'l'),
           ...{
-            [this.startTimeKey]: value && value[0] && value[0].getTime() || undefined,
-            [this.endTimeKey]: value && value[1] && value[1].getTime() || undefined
+            [this.startTimeKey]: value && value[0] && value[0].getTime(),
+            [this.endTimeKey]: value && value[1] && value[1].getTime()
           }
         }
       })

@@ -4,10 +4,10 @@ import round from 'lodash/round'
 
 export function fixedFloat (number, byte = 2) {
   if (!number) {
-    return 0;
+    return 0
   }
 
-  return parseFloat(number.toFixed(parseInt(byte)));
+  return parseFloat(number.toFixed(parseInt(byte, 10)))
 }
 
 export function fixedFloatPro (number) {
@@ -43,7 +43,7 @@ export function cutFloat (number, digits = 2) {
   number = fixedFloatPro(number)
   const isMinus = (number < 0)
   if (isMinus) {
-    number = number * -1
+    number = -number
   }
   const result = fixedFloatPro(floor(number, digits))
   return result * (isMinus ? -1 : 1)

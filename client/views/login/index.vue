@@ -24,7 +24,6 @@
         </el-col>
     </el-row>
 </template>
-
 <script>
   import convertApiQuery from 'utils/convertApiQuery'
   import MD5 from 'md5'

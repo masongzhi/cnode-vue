@@ -9,30 +9,30 @@ export default {
     }
   },
 
-  data() {
+  data () {
     return {
       value: null
     }
   },
 
   watch: {
-    '$route'(to, from) {
+    '$route' (to, from) {
       this.updateValueFromQuery(to.query)
     }
   },
-  
+
   methods: {
-    updateValueFromQuery(query = this.$route.query) {
+    updateValueFromQuery (query = this.$route.query) {
       const {
         [this.searchKey]: searchKey
       } = query
 
       this.value = searchKey || null
     },
-    handleInput(value) {
+    handleInput (value) {
       this.value = value
     },
-    search() {
+    search () {
       this.$router.push({
         path: this.$route.path,
         query: {
@@ -40,24 +40,24 @@ export default {
         }
       })
     },
-    handleKeyup(event) {
+    handleKeyup (event) {
       if (event.keyCode === 13) {
         this.search()
       }
     },
-    handleIconClick(e) {
+    handleIconClick (e) {
       this.search()
     }
   },
 
-  created() {
+  created () {
     this.updateValueFromQuery()
   },
 
-  render(h) {
+  render (h) {
     return (
       <el-input
-        icon="search"
+        icon='search'
         value={this.value}
         placeholder={this.placeholder}
         onClick={this.handleIconClick}

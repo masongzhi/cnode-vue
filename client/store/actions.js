@@ -8,7 +8,7 @@ function createAction (process, type) {
     commit(`${type}_START`)
     return process(...rest)
       .then(response => commit(`${type}_SUCCESS`, { response }))
-      .catch(error => commit(`${type}_ERROR`, { error }))
+      .catch(err => commit(`${type}_ERROR`, { err }))
   }
 }
 

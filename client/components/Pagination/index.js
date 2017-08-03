@@ -1,4 +1,4 @@
-import omit from 'lodash/omit';
+import omit from 'lodash/omit'
 
 export default {
   props: {
@@ -12,32 +12,32 @@ export default {
     },
     'page-sizes': {
       type: Array,
-      default() {
+      default () {
         return [10, 20, 30, 40, 50, 60]
       }
     },
-    'layout': {
+    layout: {
       type: String,
       default: 'total, sizes, prev, pager, next, jumper'
     },
-    'total': Number
+    total: Number
   },
   methods: {
-    handleSizeChange(size) {
+    handleSizeChange (size) {
       this.$router.push({
         path: this.$route.path,
         query: {
           ...omit(this.$route.query, 'l'),
-          ...{c: size}
+          ...{ c: size }
         }
       })
     },
-    handleCurrentChange(currentPage) {
+    handleCurrentChange (currentPage) {
       this.$router.push({
         path: this.$route.path,
         query: {
           ...this.$route.query,
-          ...{l: currentPage}
+          ...{ l: currentPage }
         }
       })
     }
@@ -46,11 +46,11 @@ export default {
     const { c, l } = this.$route.query
     const finalCurrentPage = +l || this.currentPage
     const finalPageSize = +c || this.pageSize
-    const finalPageSizes = this.pageSizes.filter(value => +value !== +finalPageSize);
-    finalPageSizes.unshift(finalPageSize);
+    const finalPageSizes = this.pageSizes.filter(value => +value !== +finalPageSize)
+    finalPageSizes.unshift(finalPageSize)
 
     return (
-      <div class="klg-pagination-wrapper">
+      <div class='klg-pagination-wrapper'>
         <el-pagination
           on-size-change={this.handleSizeChange}
           on-current-change={this.handleCurrentChange}

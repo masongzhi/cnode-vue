@@ -48,7 +48,7 @@ const state = {
       {
         value: 'good',
         label: '精华'
-      },
+      }
     ]
   }
 }

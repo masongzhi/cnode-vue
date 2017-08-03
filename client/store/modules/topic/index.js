@@ -25,7 +25,7 @@ const state = {
         text: '招聘'
       }
     }
-  },
+  }
 }
 const actions = {
 }
