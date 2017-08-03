@@ -4,25 +4,36 @@
     justify="center"
     class="bgGrey"
   >
-    <el-col :span="12" class="bgWhite marginTop20 marginBottom20">
+    <el-col :lg="12" :md="18" :xs="24" class="bgWhite marginTop20 marginBottom20">
       <StatusContainer :isLoading="isLoading">
-        <el-row>
-          <div class="block">
+        <el-row class="block head_content">
+          <el-row
+            class="head_content-title"
+            type="flex"
+            align="middle"
+          >
             <el-tag class="tab" :type="data && data.top && keyValue && keyValue.tab['top'].type || data && data.good && keyValue && keyValue.tab['good'].type || keyValue && keyValue.tab[data.tab] && keyValue.tab[data.tab].type">{{data.top && keyValue.tab['top'].text || data.good && keyValue.tab['good'].text || keyValue.tab[data.tab] && keyValue.tab[data.tab].text}}</el-tag>
-            <span class="title">{{data.title}}</span>
-          </div>
+            <span class="title fontSize--large bold">{{data.title}}</span>
+          </el-row>
+          <el-row class="head_content-details">
+            <span>发布于{{formatStringTime(data.create_at)}}</span>
+            <span>作者{{data.author && data.author.loginname}}</span>
+            <span>{{data.visit_count}}访问</span>
+            <span>最后编辑于{{formatStringTime(data.last_reply_at)}}</span>
+            <span>来自{{data.tab}}</span>
+          </el-row>
         </el-row>
-        <el-row>
-          <div class="block topic_content">
-            <div v-html="data.content"></div>
-          </div>
+        <el-row class="block topic_content">
+          <div v-html="data.content"></div>
         </el-row>
+        <Replies :data="data.replies"/>
       </StatusContainer>
     </el-col>
   </el-row>
 </template>
 <script>
   import StatusContainer from '../../components/StatusContainer'
+  import Replies from './Replies.vue'
   import { mapState, mapActions } from 'vuex'
   import convertApiQuery from '../../utils/convertApiQuery'
   import { getFormatTime } from '../../utils/dateUtils'
@@ -30,12 +41,16 @@
   export default {
     components: {
       StatusContainer,
+      Replies
     },
     methods: {
       ...mapActions([
         'getTopicById'
       ]),
       getFormatTime,
+      formatStringTime (string) {
+        return this.getFormatTime(new Date(string))
+      },
       getData () {
         const topicId = this.$route.params.topicId
         this.getTopicById(topicId, {
@@ -48,10 +63,6 @@
     created() {
       this.getData()
     },
-    mounted () {
-//      console.log(this.$refs)
-//      this.$refs.content.innerHTML = this.data && this.data.content
-    },
     computed: {
       ...mapState('topic', {
         data: state => {console.log(state); return state.data && state.data.data},
@@ -62,3 +73,21 @@
     }
   }
 </script>
+<style lang="less" scoped>
+  .head_content {
+    padding: 0 0 30px 10px;
+    &-title {
+      padding: 20px 0;
+    }
+    &-details {
+      >span {
+        &:before {
+          content: " • ";
+        }
+      }
+    }
+  }
+  .topic_content {
+    padding: 20px 0;
+  }
+</style>

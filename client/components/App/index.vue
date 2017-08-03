@@ -3,9 +3,9 @@
     <router-view></router-view>
   </div>
 </template>
-<style>
+<style lang="less">
 @import "style.less";
-@import "mark-down.less";
+@import "mark-down.css";
 body {
   margin: 0;
   /*font-size: 2rem;*/
