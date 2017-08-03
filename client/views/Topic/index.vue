@@ -1,18 +1,21 @@
 <template>
-  <el-row
-    type="flex"
-    justify="center"
-    class="bgGrey"
-  >
-    <el-col :lg="12" :md="18" :xs="24" class="bgWhite marginTop20 marginBottom20">
-      <StatusContainer :isLoading="isLoading">
+  <StatusContainer :isLoading="isLoading" class="bgGrey">
+    <el-row
+      type="flex"
+      justify="center"
+    >
+      <el-col :lg="12" :md="18" :xs="24" class="bgWhite marginTop20 marginBottom20">
         <el-row class="block head_content">
           <el-row
             class="head_content-title"
             type="flex"
             align="middle"
           >
-            <el-tag class="tab" :type="data && data.top && keyValue && keyValue.tab['top'].type || data && data.good && keyValue && keyValue.tab['good'].type || keyValue && keyValue.tab[data.tab] && keyValue.tab[data.tab].type">{{data.top && keyValue.tab['top'].text || data.good && keyValue.tab['good'].text || keyValue.tab[data.tab] && keyValue.tab[data.tab].text}}</el-tag>
+            <el-tag class="tab"
+                    :type="data && data.top && keyValue && keyValue.tab['top'].type || data && data.good && keyValue && keyValue.tab['good'].type || keyValue && keyValue.tab[data.tab] && keyValue.tab[data.tab].type">
+              {{data.top && keyValue.tab['top'].text || data.good && keyValue.tab['good'].text || keyValue.tab[data.tab]
+              && keyValue.tab[data.tab].text}}
+            </el-tag>
             <span class="title fontSize--large bold">{{data.title}}</span>
           </el-row>
           <el-row class="head_content-details">
@@ -26,10 +29,17 @@
         <el-row class="block topic_content">
           <div v-html="data.content"></div>
         </el-row>
+      </el-col>
+    </el-row>
+    <el-row
+      type="flex"
+      justify="center"
+    >
+      <el-col :lg="12" :md="18" :xs="24" class="bgWhite marginBottom20">
         <Replies :data="data.replies"/>
-      </StatusContainer>
-    </el-col>
-  </el-row>
+      </el-col>
+    </el-row>
+  </StatusContainer>
 </template>
 <script>
   import StatusContainer from '../../components/StatusContainer'
@@ -49,7 +59,7 @@
       ]),
       getFormatTime,
       formatStringTime (string) {
-        return this.getFormatTime(new Date(string))
+        return getFormatTime(new Date(string))
       },
       getData () {
         const topicId = this.$route.params.topicId
