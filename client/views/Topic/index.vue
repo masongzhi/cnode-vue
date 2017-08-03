@@ -83,20 +83,21 @@
     }
   }
 </script>
-<style lang="less" scoped>
+<style lang="less" rel="stylesheet/less" scoped>
   .head_content {
     padding: 0 0 30px 10px;
     &-title {
       padding: 20px 0;
     }
     &-details {
-      >span {
+      > span {
         &:before {
           content: " • ";
         }
       }
     }
   }
+
   .topic_content {
     padding: 20px 0;
   }

@@ -15,7 +15,7 @@
       </div>
       <div class="replies-content">
         <p class="replies-content-title">
-          <span>{{item.author && item.author.loginname}}</span>
+          <span class="bold">{{item.author && item.author.loginname}}</span>
           <span>{{index + 1}}楼</span>
           <span>回复于{{formatStringTime(item.create_at)}}</span>
         </p>
@@ -41,7 +41,7 @@
     }
   }
 </script>
-<style scoped>
+<style rel="stylesheet/less" scoped>
   .count {
     padding: 10px;
     background-color: #F9FAFC;
@@ -49,11 +49,13 @@
   }
   .replies {
     padding: 10px;
-  }
-  .replies-content-title {
-    padding-left: 10px;
-  }
-  .replies-content-text {
-    padding-left: 20px;
+    &-content {
+      &-title {
+        padding-left: 10px;
+      }
+      &-text {
+        padding-left: 20px;
+      }
+    }
   }
 </style>
