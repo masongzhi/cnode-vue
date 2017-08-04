@@ -9,6 +9,7 @@
       :key="item.id"
       type="flex"
       align="top"
+      style="border-bottom: 1px solid #e1e1e1"
     >
       <div class="replies-avatar">
         <router-link :to="{ path: '/user/' + (item.author && item.author.loginname)}">
