@@ -46,7 +46,7 @@
   import Replies from './Replies.vue'
   import { mapState, mapActions } from 'vuex'
   import convertApiQuery from '../../utils/convertApiQuery'
-  import { getFormatTime } from '../../utils/dateUtils'
+  import getFormatTime from '../../utils/dateUtils'
 
   export default {
     components: {

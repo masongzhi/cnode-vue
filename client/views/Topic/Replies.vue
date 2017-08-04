@@ -11,7 +11,9 @@
       align="top"
     >
       <div class="replies-avatar">
-        <img :src="item.author && item.author.avatar_url" alt="头像" width="30px">
+        <router-link :to="{ path: '/user/' + (item.author && item.author.loginname)}">
+          <img :src="item.author && item.author.avatar_url" alt="头像" width="30px">
+        </router-link>
       </div>
       <div class="replies-content">
         <p class="replies-content-title">
@@ -25,7 +27,7 @@
   </div>
 </template>
 <script>
-  import { getFormatTime } from '../../utils/dateUtils'
+  import getFormatTime from '../../utils/dateUtils'
 
   export default {
     props: {
@@ -47,6 +49,7 @@
     background-color: #F9FAFC;
     border-radius: 3px 3px 0 0;
   }
+
   .replies {
     padding: 10px;
     &-content {

@@ -3,30 +3,6 @@ const state = {
   isLoading: false,
   error: null,
   menuDefaultActive: '0',
-  keyValue: {
-    tab: {
-      top: {
-        type: 'primary',
-        text: '置顶'
-      },
-      ask: {
-        type: 'gray',
-        text: '问答'
-      },
-      good: {
-        type: 'success',
-        text: '精华'
-      },
-      share: {
-        type: 'gray',
-        text: '分享'
-      },
-      job: {
-        type: 'warning',
-        text: '招聘'
-      }
-    }
-  },
   options: {
     tab: [
       {

@@ -8,3 +8,7 @@ export function getTopics (options) {
 export function getTopic (topicId, options) {
   return fetch(`/topic/${topicId}`, options)
 }
+// get /user/:loginname 用户详情
+export function getUser (loginname, options) {
+  return fetch(`/user/${loginname}`, options)
+}

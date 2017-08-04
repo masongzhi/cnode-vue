@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Frame from '../views/Frame'
 import Topics from '../views/Topics/index.vue'
 import Topic from '../views/Topic/index.vue'
+import User from '../views/User/index.vue'
 // import Login from '../views/login'
 import Pell from '../views/Pell/index.vue'
 
@@ -28,6 +29,10 @@ export default new Router({
         {
           path: 'pell',
           component: Pell
+        },
+        {
+          path: 'user/:loginname',
+          component: User
         }
       ]
     }

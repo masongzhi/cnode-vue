@@ -33,5 +33,6 @@ function createListMutation (type, ...props) {
 export default {
   // INVEST
   ...createListMutation('GET_TOPICS', 'topics'),
-  ...createListMutation('GET_TOPIC_BY_ID', 'topic')
+  ...createListMutation('GET_TOPIC_BY_ID', 'topic'),
+  ...createListMutation('GET_USER_BY_ID', 'user')
 }

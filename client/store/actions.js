@@ -1,6 +1,7 @@
 import {
   getTopics,
-  getTopic
+  getTopic,
+  getUser
 } from '../api'
 
 function createAction (process, type) {
@@ -15,5 +16,6 @@ function createAction (process, type) {
 export default {
   // GET
   getTopics: createAction(getTopics, 'GET_TOPICS'),
-  getTopicById: createAction(getTopic, 'GET_TOPIC_BY_ID')
+  getTopicById: createAction(getTopic, 'GET_TOPIC_BY_ID'),
+  getUserById: createAction(getUser, 'GET_USER_BY_ID')
 }
